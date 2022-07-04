@@ -1,4 +1,5 @@
 const isDev = process.env.NODE_ENV === "development";
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -55,4 +56,13 @@ module.exports = {
       },
     ],
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      inject: "body",
+      scriptLoading: "defer",
+      favicon: "./src/favicon.ico",
+    }),
+  ],
 };
